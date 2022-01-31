@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+	--line-border-fill: purple;
+	--line-border-empty: #e0e0e0;
+}
 * {
 	box-sizing: border-box;
 }
 
 body {
+	background: linear-gradient(to bottom, #4286f4, #7a93ce);
 	font-family: 'Roboto', sans-serif;
+	color: white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,4 +19,79 @@ body {
 	min-height: 100vh;
 	overflow: hidden;
 	margin: 0;
+}
+.container {
+	text-align: center;
+}
+.wrapper-steps {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 2em;
+	max-width: 100%;
+	width: 21.8em;
+}
+.wrapper-steps::before {
+	content: '';
+	background-color: var(--line-border-empty);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 0.25rem;
+	width: 100%;
+	z-index: -1;
+}
+
+.progress {
+	background-color: var(--line-border-fill);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 0.25rem;
+	width: 0%;
+	z-index: -1;
+	transition: 0.4s ease;
+}
+
+/*  Circle of progress bar */
+.circle {
+	background-color: white;
+	color: #999;
+	border-radius: 50%;
+	height: 1.8rem;
+	width: 1.8rem;
+	border: 0.25rem solid var(--line-border-empty);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.4s ease;
+}
+.circle.active {
+	border-color: var(--line-border-fill);
+	transition: 0.4s ease;
+}
+
+/* Button */
+.btn {
+	background-color: var(--line-border-fill);
+	color: white;
+	border: 0;
+	border-radius: 0.375em;
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: bold;
+	padding: 0.5em 1.875em;
+	margin: 0.4em;
+}
+.btn:active {
+	transform: scale(0.98);
+}
+
+.btn:focus {
+	outline: none;
+}
+.btn:disabled {
+	background-color: var(--line-border-empty);
+	opacity: 90%;
+	cursor: not-allowed;
 }
