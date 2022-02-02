@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true // Each time we save it's with Eslint
+  },
+  "prettier.arrowParens": "avoid"
+}
