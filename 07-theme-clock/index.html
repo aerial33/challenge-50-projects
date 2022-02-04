@@ -6,10 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 		<link rel="stylesheet" href="style.css" />
-		<title>title of your project</title>
+		<title>Theme clock 🕗</title>
 	</head>
 	<body>
-		<h1>Just Do It 🤓</h1>
+		<!-- Inspired by https://dribbble.com/shots/5958443-Alarm-clock -->
+		<button class="toggle">Dark mode</button>
+
+		<div class="clock-container">
+			<div class="clock">
+				<div class="needle hour-needle" id="hours"></div>
+				<div class="needle min-needle"></div>
+				<div class="needle second-needle" id="seconds"></div>
+				<div class="center-point"></div>
+			</div>
+
+			<div class="time">12:00</div>
+			<div class="date">Monday, Nov <span class="circle">2</span></div>
+		</div>
 
 		<script src="script.js"></script>
 	</body>
