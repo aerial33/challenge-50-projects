@@ -3,9 +3,32 @@ const secondEl = document.getElementById('seconds')
 const minuteEl = document.querySelector('.min-needle')
 const timeEl = document.querySelector('.time')
 const dateEl = document.querySelector('.date')
-const toggle = document.querySelector('.toggle')
+const toggleMode = document.querySelector('.toggle')
 
-toggle.addEventListener('click', e => {
+const months = [
+	'Jan',
+	'feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec',
+]
+const days = [
+	'Sunday',
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday',
+]
+toggleMode.addEventListener('click', e => {
 	const html = document.querySelector('html')
 	html.classList.toggle('dark')
 	html.classList.contains('dark')
@@ -13,7 +36,7 @@ toggle.addEventListener('click', e => {
 		: (e.target.textContent = 'Dark mode')
 })
 
-function setDate() {
+function setTime() {
 	const now = new Date()
 
 	const seconds = now.getSeconds()
@@ -28,6 +51,12 @@ function setDate() {
 	const hours = now.getHours()
 	const getHoursDegrees = (hours / 12) * 360 + 90
 	hourEl.style.transform = `rotate(${getHoursDegrees}deg)`
+
+	const ampm = hours >= 12 ? 'PM' : 'AM'
+	timeEl.textContent = `${hours}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`
+	const day = now.getDate()
+	const month = now.getMonth()
+	dateEl.innerHTML = `${days[day]}, ${months[month]} <span class='circle'>${day}</span>`
 }
 
-setInterval(setDate, 1000)
+setInterval(setTime, 1000)
